@@ -1,0 +1,61 @@
+
+<mat-card class="card">
+
+    <h1 class="heading">Form Recognizer</h1>
+  <div fxLayout="column" fxLayoutAlign="space-between center" fxFlex="50" fxLayoutGap="80">
+    <mat-form-field class="dec-amount" appearance="fill">
+      <input matInput placeholder="Declared Amount">
+    </mat-form-field>
+    <div class="card" >
+      <div class="card-body">
+        <mat-form-field>
+          <div>
+            <mat-toolbar>
+            <input matInput [(ngModel)]="fileAttr" readonly name="name" />
+            </mat-toolbar>
+          <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile" multiple="multiple"
+          accept="image/*" />
+          </div>
+        </mat-form-field>
+      </div>
+    <div class="card-footer">
+        <div><img src="{{dataimage}}" width="300px" class="image"></div>
+    </div>
+  </div>
+  </div>
+    <mat-progress-bar mode="determinate" class="progress" value="40"></mat-progress-bar>
+    <button mat-raised-button class="next" color="primary" type="submit" (click)="goToNext()" routerLink="/download">Next</button>
+
+</mat-card>
+
+<!-- <mat-card class="card">
+
+  <h1 class="heading">Form Recognizer</h1>
+<div fxLayout="column" fxLayoutAlign="space-between center" fxFlex="50" fxLayoutGap="80">
+  <mat-form-field class="dec-amount" appearance="fill">
+    <input matInput placeholder="Declared Amount">
+  </mat-form-field>
+  <div *ngIf="currentFile" class="progress">
+    <div
+      class="progress-bar progress-bar-info progress-bar-striped"
+      role="progressbar"
+      attr.aria-valuenow="{{ progress }}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      [ngStyle]="{ width: progress + '%' }"
+    >
+      {{ progress }}%
+    </div>
+  </div>
+  <label class="btn btn-default">
+    <input type="file" (change)="selectFile($event)" />
+  </label>
+  <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
+    Upload
+  </button>
+  <div class="alert alert-light" role="alert">{{ message }}</div>
+  <div class="card-footer">
+    <div><img src="{{dataimage}}" width="300px" class="image"></div>
+</div>
+</div>
+</mat-card> -->
